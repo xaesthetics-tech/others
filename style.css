@@ -1224,3 +1224,6 @@ body {
   max-width: 100%;
   overflow-x: clip;
 }
+.site-nav a > span {
+  color: #c9a96e !important;
+}
