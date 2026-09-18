@@ -1227,3 +1227,6 @@ body {
 .site-nav a > span {
   color: #c9a96e !important;
 }
+.marquee-item span {
+  color: #B99A5B;
+}
