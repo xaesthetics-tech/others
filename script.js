@@ -712,8 +712,61 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupDateMinimum();
   setupEnquiryForm();
   setupFooterYear();
-
+  setupDynamicGallery();
   routeToHash();
 
   window.addEventListener("hashchange", routeToHash);
 });
+function setupDynamicGallery() {
+  const gallery = document.querySelector(".gallery-grid");
+
+  if (!gallery) return;
+
+  fetch("salon.json", { cache: "no-store" })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Unable to load salon.json");
+      }
+
+      return response.json();
+    })
+    .then(config => {
+      if (!Array.isArray(config.gallery)) {
+        return;
+      }
+
+      const existingItems = gallery.querySelectorAll(".gallery-item");
+
+      config.gallery.forEach((item, index) => {
+        const galleryItem = existingItems[index];
+
+        if (!galleryItem || !item.image) return;
+
+        const image = galleryItem.querySelector("img");
+        const category = galleryItem.querySelector("figcaption span");
+        const title = galleryItem.querySelector("figcaption b");
+
+        if (image) {
+          image.src = item.image;
+
+          if (item.alt) {
+            image.alt = item.alt;
+          }
+        }
+
+        if (category && item.category) {
+          category.textContent = item.category;
+        }
+
+        if (title && item.title) {
+          title.textContent = item.title;
+        }
+      });
+    })
+    .catch(error => {
+      console.warn(
+        "Dynamic gallery unavailable:",
+        error.message
+      );
+    });
+}
