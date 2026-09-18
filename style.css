@@ -1,0 +1,527 @@
+/* =========================================
+   APSARA — REQUESTED VISUAL UPGRADES
+   APPENDED TO ORIGINAL CSS
+========================================= */
+
+
+/* =========================================
+   1. HERO — INTERIOR IMAGE BACKGROUND
+========================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  min-height: calc(100svh - 85px);
+
+  padding: clamp(70px, 9vw, 120px)
+           clamp(22px, 7vw, 110px);
+
+  background-image:
+    linear-gradient(
+      rgba(35, 47, 33, 0.50),
+      rgba(35, 47, 33, 0.58)
+    ),
+    var(--hero-bg);
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+}
+
+
+/* Extra readable overlay */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 30, 20, 0.62),
+      rgba(20, 30, 20, 0.16)
+    );
+}
+
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+
+  max-width: 720px;
+}
+
+
+.hero .eyebrow,
+.hero h1,
+.hero .hero-text {
+  color: white;
+}
+
+
+.hero h1 {
+  text-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.hero .hero-text {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+
+.hero .text-link {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+
+.hero .text-link:hover {
+  color: var(--sage);
+  border-color: var(--sage);
+}
+
+
+/* Keep "Your beauty story." */
+
+.hero-art {
+  position: absolute;
+
+  right: clamp(22px, 7vw, 110px);
+  bottom: 35px;
+
+  z-index: 2;
+
+  padding: 0;
+}
+
+
+.hero-art::before {
+  display: none;
+}
+
+
+.hero-label {
+  position: static;
+
+  padding: 13px 20px;
+
+  background: rgba(247, 249, 242, 0.94);
+
+  color: var(--forest);
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   2. MOVING BEAUTY RIBBON
+========================================= */
+
+.beauty-ribbon {
+  overflow: hidden;
+
+  width: 100%;
+
+  padding: 15px 0;
+
+  background: var(--forest);
+
+  color: var(--cream);
+
+  border-top:
+    1px solid rgba(170, 147, 103, 0.45);
+
+  border-bottom:
+    1px solid rgba(170, 147, 103, 0.45);
+}
+
+
+.beauty-ribbon-track {
+  display: flex;
+
+  width: max-content;
+
+  align-items: center;
+
+  gap: 22px;
+
+  white-space: nowrap;
+
+  animation:
+    apsaraRibbon 24s linear infinite;
+}
+
+
+.beauty-ribbon span {
+  font-family: var(--serif);
+
+  font-size: 18px;
+
+  letter-spacing: 0.14em;
+}
+
+
+.beauty-ribbon i {
+  font-family: var(--serif);
+
+  font-size: 12px;
+
+  color: var(--gold);
+
+  font-style: normal;
+}
+
+
+@keyframes apsaraRibbon {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* Reduce space between ribbon and About */
+
+.beauty-ribbon + .section {
+  padding-top:
+    clamp(50px, 6vw, 85px);
+}
+
+
+/* =========================================
+   3. ANIMATED STATISTICS
+========================================= */
+
+.stat-number {
+  font-variant-numeric: tabular-nums;
+
+  min-width: 4ch;
+}
+
+
+/* =========================================
+   4. SERVICES PAGE
+========================================= */
+
+.page-banner h1,
+.services-list .service-row h3,
+.service-subcategory strong {
+  font-family: var(--serif);
+}
+
+
+.services-list {
+  grid-template-columns: 1fr;
+
+  gap: 1px;
+}
+
+
+.service-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  gap: 35px;
+}
+
+
+.service-row-main {
+  min-width: 0;
+}
+
+
+.service-subcategories {
+  margin-top: 25px;
+
+  border-top:
+    1px solid var(--border);
+}
+
+
+.service-subcategory {
+  display: grid;
+
+  grid-template-columns:
+    34px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 0;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+
+.service-subcategory > span {
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  color: var(--gold);
+}
+
+
+.service-subcategory strong {
+  font-size: 20px;
+
+  font-weight: 400;
+
+  color: var(--forest);
+}
+
+
+.service-subcategory em {
+  font-family: var(--serif);
+
+  font-size: 18px;
+
+  font-style: normal;
+
+  color: var(--gold);
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   5. CONTACT PAGE
+========================================= */
+
+.contact-grid {
+  grid-template-columns: 1fr;
+
+  max-width: 900px;
+}
+
+
+.contact-details h2 {
+  font-family: var(--serif);
+
+  font-size:
+    clamp(4rem, 7vw, 7rem);
+
+  letter-spacing: -0.02em;
+}
+
+
+.detail a {
+  display: inline-block;
+
+  font-family: var(--serif);
+
+  font-size: 25px;
+
+  color: var(--forest);
+
+  border-bottom:
+    1px solid transparent;
+
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+
+
+.detail a:hover {
+  color: var(--gold);
+
+  border-color: var(--gold);
+}
+
+
+/* =========================================
+   6. APPOINTMENT TYPOGRAPHY
+========================================= */
+
+.form-card h2,
+.submit-button,
+.enquiry-copy .section-title {
+  font-family: var(--serif);
+}
+
+
+.form-card h2 {
+  font-size:
+    clamp(3.4rem, 5.5vw, 6rem);
+
+  letter-spacing: -0.02em;
+}
+
+
+.submit-button {
+  font-size: 15px;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   7. FOOTER CONTACT LINKS
+========================================= */
+
+.footer-links {
+  flex-wrap: wrap;
+}
+
+
+.footer-links a {
+  transition: color 0.3s;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+
+    min-height: 680px;
+
+    padding:
+      65px 24px 100px;
+
+    display: block;
+
+  }
+
+
+  .hero-art {
+
+    right: 24px;
+
+    bottom: 25px;
+
+  }
+
+
+  .hero-label {
+
+    font-size: 18px;
+
+    padding:
+      11px 15px;
+
+  }
+
+
+  .beauty-ribbon-track {
+
+    gap: 17px;
+
+    animation-duration: 18s;
+
+  }
+
+
+  .beauty-ribbon span {
+
+    font-size: 15px;
+
+  }
+
+
+  .beauty-ribbon + .section {
+
+    padding-top: 50px;
+
+  }
+
+
+  .service-row {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+
+  .service-price {
+
+    padding-top: 0;
+
+  }
+
+
+  .service-subcategory {
+
+    grid-template-columns:
+      25px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 8px;
+
+  }
+
+
+  .service-subcategory strong {
+
+    font-size: 17px;
+
+  }
+
+
+  .service-subcategory em {
+
+    font-size: 16px;
+
+  }
+
+
+  .contact-details h2 {
+
+    font-size:
+      clamp(3.5rem, 15vw, 5rem);
+
+  }
+
+
+  .detail a {
+
+    font-size: 22px;
+
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .beauty-ribbon-track {
+
+    animation: none;
+
+  }
+
+}
